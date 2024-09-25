@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from MainwindowDef import MyMainWindow
+from gui.MainwindowDef import MyMainWindow
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)  # 在 QApplication 方法中使用，创建应用程序对象

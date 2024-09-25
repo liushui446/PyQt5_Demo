@@ -1,5 +1,4 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QMainWindow
 from MainWindow import Ui_MainWindow  # 导入 uiDemo4.py 中的 Ui_MainWindow 界面类
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
