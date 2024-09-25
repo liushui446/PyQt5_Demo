@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'work.ui'
+# Form implementation generated from reading ui file 'MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -11,18 +11,23 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
+class Ui_MainWindow(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(548, 432)
         self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(220, 200, 75, 23))
+        self.pushButton.setGeometry(QtCore.QRect(360, 160, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(60, 160, 113, 20))
+        self.lineEdit.setObjectName("lineEdit")
 
         self.retranslateUi(Form)
+        self.pushButton.clicked.connect(self.lineEdit.clear) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.pushButton.setText(_translate("Form", "Test"))
+
