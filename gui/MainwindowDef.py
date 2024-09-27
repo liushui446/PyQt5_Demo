@@ -8,14 +8,16 @@ from PyQt5.QtCore import QUrl, QTimer, pyqtSlot, Qt
 from gui.GPSManager import GPSManager  # 假设你已经有了 GPSManager.py 文件
 import folium
 
-import warnings
+# import warnings
+#
+# warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-
-class MyMainWindow(QMainWindow, Ui_MainWindow):  # 继承 QMainWindow类和 Ui_MainWindow界面类
-    def __init__(self, parent=None):
-        super(MyMainWindow, self).__init__(parent)  # 初始化父类
+class MyMainWindow(QWidget, Ui_MainWindow):  # 继承 QMainWindow类和 Ui_MainWindow界面类
+    # def __init__(self, parent=None):
+    def __init__(self):
+        # super(MyMainWindow, self).__init__(parent)  # 初始化父类
+        super().__init__()  # 初始化父类
         self.setupUi(self)  # 继承 Ui_MainWindow 界面类
 
         # 调用高德地图http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}
@@ -50,13 +52,13 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):  # 继承 QMainWindow类和 Ui_M
         self.webEngineView = QWebEngineView(self)  # 创建 QWebEngineView 实例
         # self.webEngineView.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         # 设置网页在窗口中显示的位置和大小
-        self.webEngineView.setGeometry(0, 0, 960, 600)
-        # self.webEngineView.setUrl(QUrl("/qrc/map.html"))  # 设置 URL
-        # self.Layout_map.addWidget(self.webEngineView)
-
-        self.label_gps.setGeometry(1000, 100, 200, 100)
-        self.label_speed.setGeometry(1000, 300, 200, 100)
-        self.pushButton_draw.setGeometry(1000, 500, 200, 100)
+        # self.webEngineView.setGeometry(0, 0, 960, 600)
+        # # self.webEngineView.setUrl(QUrl("/qrc/map.html"))  # 设置 URL
+        self.Layout_map.addWidget(self.webEngineView)
+        #
+        # self.label_gps.setGeometry(1000, 100, 200, 100)
+        # self.label_speed.setGeometry(1000, 300, 200, 100)
+        # self.pushButton_draw.setGeometry(1000, 500, 200, 100)
 
         # 在QWebEngineView中加载网址
         path = "file:\\" + os.getcwd() + "\\save_map.html"
